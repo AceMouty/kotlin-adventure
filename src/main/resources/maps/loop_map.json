@@ -1,0 +1,43 @@
+{
+  "startRoom": 0,
+  "rooms": [
+    {"id": 0, "name": "Room 0", "coords": {"x": 3, "y": 5}},
+    {"id": 1, "name": "Room 1", "coords": {"x": 3, "y": 6}},
+    {"id": 2, "name": "Room 2", "coords": {"x": 3, "y": 7}},
+    {"id": 3, "name": "Room 3", "coords": {"x": 4, "y": 5}},
+    {"id": 4, "name": "Room 4", "coords": {"x": 5, "y": 5}},
+    {"id": 5, "name": "Room 5", "coords": {"x": 3, "y": 4}},
+    {"id": 6, "name": "Room 6", "coords": {"x": 3, "y": 3}},
+    {"id": 7, "name": "Room 7", "coords": {"x": 2, "y": 5}},
+    {"id": 8, "name": "Room 8", "coords": {"x": 1, "y": 5}},
+    {"id": 9, "name": "Room 9", "coords": {"x": 1, "y": 4}},
+    {"id": 10, "name": "Room 10", "coords": {"x": 1, "y": 3}},
+    {"id": 11, "name": "Room 11", "coords": {"x": 2, "y": 3}}
+  ],
+  "connections": [
+    {"from": 0, "direction": "north", "to": 1, "locked": false, "hidden": false, "requires": null},
+    {"from": 0, "direction": "south", "to": 5, "locked": false, "hidden": false, "requires": null},
+    {"from": 0, "direction": "east", "to": 3, "locked": false, "hidden": false, "requires": null},
+    {"from": 0, "direction": "west", "to": 7, "locked": false, "hidden": false, "requires": null},
+    {"from": 1, "direction": "south", "to": 0, "locked": false, "hidden": false, "requires": null},
+    {"from": 1, "direction": "north", "to": 2, "locked": false, "hidden": false, "requires": null},
+    {"from": 2, "direction": "south", "to": 1, "locked": false, "hidden": false, "requires": null},
+    {"from": 3, "direction": "west", "to": 0, "locked": false, "hidden": false, "requires": null},
+    {"from": 3, "direction": "east", "to": 4, "locked": false, "hidden": false, "requires": null},
+    {"from": 4, "direction": "west", "to": 3, "locked": false, "hidden": false, "requires": null},
+    {"from": 5, "direction": "north", "to": 0, "locked": false, "hidden": false, "requires": null},
+    {"from": 5, "direction": "south", "to": 6, "locked": false, "hidden": false, "requires": null},
+    {"from": 6, "direction": "north", "to": 5, "locked": false, "hidden": false, "requires": null},
+    {"from": 6, "direction": "west", "to": 11, "locked": false, "hidden": false, "requires": null},
+    {"from": 7, "direction": "west", "to": 8, "locked": false, "hidden": false, "requires": null},
+    {"from": 7, "direction": "east", "to": 0, "locked": false, "hidden": false, "requires": null},
+    {"from": 8, "direction": "east", "to": 7, "locked": false, "hidden": false, "requires": null},
+    {"from": 8, "direction": "south", "to": 9, "locked": false, "hidden": false, "requires": null},
+    {"from": 9, "direction": "north", "to": 8, "locked": false, "hidden": false, "requires": null},
+    {"from": 9, "direction": "south", "to": 10, "locked": false, "hidden": false, "requires": null},
+    {"from": 10, "direction": "north", "to": 9, "locked": false, "hidden": false, "requires": null},
+    {"from": 10, "direction": "east", "to": 11, "locked": false, "hidden": false, "requires": null},
+    {"from": 11, "direction": "west", "to": 10, "locked": false, "hidden": false, "requires": null},
+    {"from": 11, "direction": "east", "to": 6, "locked": false, "hidden": false, "requires": null}
+  ]
+}

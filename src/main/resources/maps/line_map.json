@@ -1,0 +1,14 @@
+{
+  "startRoom": 0,
+  "rooms": [
+    {"id": 0, "name": "Room 0", "coords": {"x": 3, "y": 5}},
+    {"id": 1, "name": "Room 1", "coords": {"x": 3, "y": 6}},
+    {"id": 2, "name": "Room 2", "coords": {"x": 3, "y": 7}}
+  ],
+  "connections": [
+    {"from": 0, "direction": "north", "to": 1, "locked": false, "hidden": false, "requires": null},
+    {"from": 1, "direction": "south", "to": 0, "locked": false, "hidden": false, "requires": null},
+    {"from": 1, "direction": "north", "to": 2, "locked": false, "hidden": false, "requires": null},
+    {"from": 2, "direction": "south", "to": 1, "locked": false, "hidden": false, "requires": null}
+  ]
+}
