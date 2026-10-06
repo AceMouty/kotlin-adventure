@@ -2,7 +2,7 @@ package dungeon.io
 
 import kotlinx.serialization.json.Json
 
-/** Turns map text into a [DungeonMapDto] model. Knows about JSON; nothing else does. */
+/** Turns map text into a [DungeonMapDto] model. Knows about JSON package; nothing else does. */
 class MapParser {
     private val json = Json { ignoreUnknownKeys = false }
 

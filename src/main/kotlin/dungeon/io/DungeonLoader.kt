@@ -23,7 +23,7 @@ class DungeonLoader(
     private val parser: MapParser = MapParser(),
 ) {
     /** Never throws for a bad or missing map; every outcome is a [LoadResult]. */
-    fun load(name: String): LoadResult {
+    fun loadDungeon(name: String): LoadResult {
         val text = source.read(name)
             ?: return LoadResult.NotFound(name)
 

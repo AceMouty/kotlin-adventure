@@ -4,47 +4,38 @@ class Dungeon(
     val startRoom: Int,
     rooms: Collection<Room>,
 ) {
-    // Constructor parameters are deliberately not properties:
-    // how you index them internally is your decision.
-
     val rooms: Collection<Room> get() = roomsById.values
-    private val roomsById: Map<Int, Room>
+    private val roomsById: Map<Int, Room> = rooms
+        .map { room -> room.copy(exits = room.exits.toMap())}
+        .associateBy { room -> room.id }
 
-    // Your internal storage, built from a private copy of `rooms`.
+    /** The room with this id, or null if there is no such room. */
+    fun findRoom(id: Int): Room? =
+        roomsById[id]
 
-    init {
-        requireUniqueIds(rooms)
-        roomsById = rooms
-            .map { room -> room.copy(exits = room.exits.toMap())}
-            .associateBy { room -> room.id }
-        requireStartRoomExists()
-        requireExitTargetsExist()
-        requireExitsMatchCoordinates()
-    }
+    /**
+     * All exits leaving this room, keyed by direction.
+     * Null if there is no such room; empty if the room has no exits.
+     */
+    fun exitsFrom(id: Int): Map<Direction, Exit>? =
+        findRoom(id)?.exits
 
-    /** @throws IllegalArgumentException if two rooms share an id. */
-    private fun requireUniqueIds(rooms: Collection<Room>): Unit = TODO()
+    /**
+     * The exit leaving this room in this direction.
+     * Null if there is no such room, or the room has no exit that way.
+     */
+    fun exit(from: Int, direction: Direction): Exit? =
+        exitsFrom(from)?.get(direction)
 
-    /** @throws IllegalArgumentException if startRoom is not one of the rooms. */
-    private fun requireStartRoomExists(): Unit = TODO()
+    /**
+     * Ids of the rooms this room's exits lead to, including locked and hidden exits.
+     * Null if there is no such room; empty if the room has no exits.
+     */
+    fun neighbors(id: Int): Set<Int>? =
+        findRoom(id)?.let { room ->
+            room.exits.values.map { it.to }.toSet()
+        }
 
-    /** @throws IllegalArgumentException if any exit leads to an id that is not one of the rooms. */
-    private fun requireExitTargetsExist(): Unit = TODO()
-
-    /** @throws IllegalArgumentException if any exit's destination is not one grid step away in the exit's direction. */
-    private fun requireExitsMatchCoordinates(): Unit = TODO()
-
-    /** The room with this id, or null if none exists. */
-    fun room(id: Int): Room? = TODO()
-
-    /** All exits leaving this room, keyed by direction. Empty if it has none. */
-    fun exitsFrom(id: Int): Map<Direction, Exit>? = TODO()
-
-    /** The exit leaving this room in this direction, or null. */
-    fun exit(from: Int, direction: Direction): Exit? = TODO()
-
-    /** Ids of rooms directly reachable from this one. */
-    fun neighbors(id: Int): Set<Int>? = TODO()
 }
 
 data class Room(
