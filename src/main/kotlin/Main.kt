@@ -6,7 +6,7 @@ fun main() {
     println("Kotlin Adventure")
     val loader = DungeonLoader(ClasspathMapSource())
 
-    for (name in listOf("cross_map", "line_map", "loop_map", "loop_fork_map")) {
+    for (name in listOf("single_room_map", "cross_map", "line_map", "loop_map", "loop_fork_map")) {
         when (val result = loader.loadDungeon(name)) {
             is LoadResult.Success -> {
                 val dungeon = result.dungeon

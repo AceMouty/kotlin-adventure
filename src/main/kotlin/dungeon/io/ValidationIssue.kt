@@ -72,13 +72,13 @@ data class CoordinateMismatch(
 }
 
 data class OneWayConnection(val from: Int, val direction: Direction, val to: Int) : ValidationIssue {
-    override val severity = Severity.WARNING
+    override val severity = Severity.ERROR
     override val message get() =
         "Connection $from -${direction.label}-> $to is one-way: " +
                 "room $to has no ${direction.opposite().label} exit back to $from"
 }
 
 data class UnreachableRoom(val id: Int) : ValidationIssue {
-    override val severity = Severity.WARNING
+    override val severity = Severity.ERROR
     override val message get() = "Room $id cannot be reached from the start room"
 }
