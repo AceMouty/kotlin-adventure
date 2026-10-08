@@ -1,5 +1,7 @@
 package com.acemouty.adventure.dungeon
 
+import com.acemouty.adventure.dungeon.io.lineMap
+import com.acemouty.adventure.dungeon.io.singleRoomMap
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -71,7 +73,7 @@ class DungeonTest {
     fun `a room with no exits has empty exits and no neighbors`() {
         val dungeon = dungeonFrom(singleRoomMap)
 
-        assertNull(dungeon.exitsFrom(1))
-        assertNull(dungeon.neighbors(1))
+        assertEquals(emptyMap(), dungeon.exitsFrom(0))
+        assertEquals(emptySet(), dungeon.neighbors(0))
     }
 }

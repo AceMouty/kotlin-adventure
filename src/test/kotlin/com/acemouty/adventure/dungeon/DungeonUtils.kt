@@ -14,28 +14,6 @@ fun dungeonFrom(dto: DungeonMapDto): Dungeon {
     return dto.toDungeon()
 }
 
-/** Three rooms in a line: 0 <-> 1 <-> 2, going north. */
-val lineMap = DungeonMapDto(
-    startRoom = 0,
-    rooms = listOf(
-        RoomDto(0, "Room 0", RoomCoordinatesDto(3, 5)),
-        RoomDto(1, "Room 1", RoomCoordinatesDto(3, 6)),
-        RoomDto(2, "Room 2", RoomCoordinatesDto(3, 7)),
-    ),
-    connections = listOf(
-        ConnectionDto(0, "north", 1),
-        ConnectionDto(1, "south", 0),
-        ConnectionDto(1, "north", 2),
-        ConnectionDto(2, "south", 1),
-    ),
-)
-
-val singleRoomMap = DungeonMapDto(
-    startRoom = 0,
-    rooms = listOf(RoomDto(0, "Room 0", RoomCoordinatesDto(0, 0))),
-    connections = emptyList(),
-)
-
 fun createTestExit(
     to: Int = 1,
     locked: Boolean = false,
@@ -47,4 +25,15 @@ fun createTestExit(
         locked = locked,
         hidden = hidden,
         requires = requires
+    )
+
+fun createTestRoomDto(
+    id: Int = 1,
+    name: String = "Test Room $id",
+    coordinates: RoomCoordinatesDto = RoomCoordinatesDto(0, 0)
+) =
+    RoomDto(
+        id = id,
+        name = name,
+        coordinates = coordinates
     )
